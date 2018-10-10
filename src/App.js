@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Searchbar from './Searchbar';
 import './App.css';
+import Giphfetch from './Giphfetch';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      giphs: []
+    }
+  }
+
+
+  componentDidMount() {
+    this.getGiphs("hello");
+  }
+
+  handleClick = (val) => {
+    this.getGiphs(val);
+  }
+
+  async getGiphs(val) {
+    try {
+      const details = await Giphfetch(val);
+      this.setState({ giphs: details.data })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Searchbar handleSubmit={this.handleClick} />
+        <div className="giphDisp">
+          {this.state.giphs.map((test, i) =>
+            <img src={test.images.fixed_height.url} alt={i} key={i} />
+            // console.log(test)
+          )}
+        </div>
       </div>
     );
   }
