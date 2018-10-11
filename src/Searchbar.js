@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
+import './Searchbar.css'
 
 class Searchbar extends Component {
     constructor(props) {
@@ -14,17 +16,22 @@ class Searchbar extends Component {
 
     Submit = (e) => {
         e.preventDefault();
-        console.log(this.state.inputVal);
         this.props.handleSubmit(this.state.inputVal);
         this.setState({ inputVal: "" })
     }
 
     render() {
         return (
-            <form>
-                <input type="text" value={this.state.inputVal} placeholder="Search" onChange={this.handleChange} />
-                <button onClick={this.Submit}>Submit</button>
-            </form>
+            <div className="wrap">
+                {/* <h1 className="display-3">Gif-tionary</h1> */}
+                <p className="lead">This app allows users to search for any term and returns results from Urban Dictionary and Giphy!</p>
+                <hr className="my-2" />
+                <p>Enter to start searching</p>
+                <form>
+                    <input type="text" value={this.state.inputVal} placeholder="Search" onChange={this.handleChange} />
+                    <Button color="primary" onClick={this.Submit}>Submit</Button>
+                </form>
+            </div>
         );
     }
 }

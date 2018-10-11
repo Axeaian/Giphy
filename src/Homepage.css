@@ -1,0 +1,28 @@
+body, html {
+    height: 100%;
+}
+
+/* <x-gif src="https://media.giphy.com/media/128MHrlrHNwwU0/giphy.gif" ping-pong></x-gif> */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./hero.gif");
+
+        /* Set a specific height */
+        height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #F8F1E5;
+}

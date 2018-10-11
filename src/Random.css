@@ -1,0 +1,13 @@
+/* .rand{
+    border: 1px solid black;
+} */
+
+.rand img{
+    width: 30vw;
+}
+
+.rand p{
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.5rem;
+}
