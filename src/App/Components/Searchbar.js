@@ -23,11 +23,11 @@ class Searchbar extends Component {
     render() {
         return (
             <div className="wrap">
-                {/* <h1 className="display-3">Gif-tionary</h1> */}
+                <h1 className="display-3">Hello</h1>
                 <p className="lead">This app allows users to search for any term and returns results from Urban Dictionary and Giphy!</p>
                 <hr className="my-2" />
-                <p>Enter to start searching</p>
-                <form>
+                <p>Enter below to continue</p>
+                <form onSubmit={this.Submit}>
                     <input type="text" value={this.state.inputVal} placeholder="Search" onChange={this.handleChange} />
                     <Button color="primary" onClick={this.Submit}>Submit</Button>
                 </form>

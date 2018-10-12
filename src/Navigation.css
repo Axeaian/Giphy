@@ -2,8 +2,19 @@
     background-color: black;
 } */
 nav{
-    color: #426E86;
     padding: 10px;
+    font-family: 'Lobster', cursive;
+    position:fixed;
+    top:0;
+    background-color: black;
+    width: 100%;
+}
+
+nav .logo{
+    font-family: 'Lobster', cursive;
+    color: rgb(3, 134, 241);
+    font-size: 1.8rem;
+    padding-left: 25px;
 }
 
 logo{
