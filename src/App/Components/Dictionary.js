@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Dictionary extends Component {
     constructor(props) {
@@ -39,3 +40,7 @@ class Dictionary extends Component {
 }
 
 export default Dictionary;
+
+Dictionary.propTypes = {
+    udDef: PropTypes.array.isRequired
+}

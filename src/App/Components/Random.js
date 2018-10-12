@@ -1,5 +1,6 @@
 import React from 'react';
-import './Random.css'
+import './Random.css';
+import PropTypes from 'prop-types';
 
 const Random = ({ gif, newRand }) => {
     return (
@@ -13,3 +14,8 @@ const Random = ({ gif, newRand }) => {
 }
 
 export default Random;
+
+Random.propTypes = {
+    gif: PropTypes.object.isRequired,
+    newRand: PropTypes.func.isRequired
+}

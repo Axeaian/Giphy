@@ -2,6 +2,7 @@ import React from 'react';
 import './Content.css';
 import Dictionary from './Components/Dictionary'
 import Random from './Components/Random';
+import PropTypes from 'prop-types';
 
 const Content = ({ giphs, rand, newRand, udDef }) => {
 
@@ -35,3 +36,10 @@ const Content = ({ giphs, rand, newRand, udDef }) => {
 }
 
 export default Content;
+
+Content.propTypes = {
+    giphs: PropTypes.array.isRequired,
+    rand: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+    newRand: PropTypes.func.isRequired,
+    udDef: PropTypes.array.isRequired
+}

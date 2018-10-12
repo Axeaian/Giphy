@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Content from './Content';
 import Navigation from '../Navigation';
-import Searchbar from './Components/Searchbar';
+import Searchbar from './Searchbar';
 import './App.css';
 import Giphfetch from './Giphfetch';
 import GiphRand from './GiphRand';
@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       giphs: [],
-      randGiph: [],
+      randGiph: { data: [] },
       searchVal: "",
       udDef: [],
       load: false
@@ -70,12 +70,6 @@ class App extends Component {
         {this.state.load === false ? null :
           <React.Fragment>
             <Content giphs={this.state.giphs} rand={this.state.randGiph.data} newRand={this.handleRand} udDef={this.state.udDef} />
-            {/* <div className="giphDisp" id="gifs">
-              <h3>More gifs from Giphy...</h3>
-              {this.state.giphs.map((test, i) =>
-                <img src={test.images.fixed_width.url} alt={i} key={i} />
-              )}
-            </div> */}
           </React.Fragment>}
       </div>
     );

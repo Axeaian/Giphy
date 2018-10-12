@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import './Searchbar.css'
+import PropTypes from 'prop-types';
 
 class Searchbar extends Component {
     constructor(props) {
@@ -37,3 +38,8 @@ class Searchbar extends Component {
 }
 
 export default Searchbar;
+
+Searchbar.propTypes = {
+    inputVal: PropTypes.string,
+    handleSubmit: PropTypes.func.isRequired
+}
