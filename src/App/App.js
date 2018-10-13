@@ -5,8 +5,7 @@ import Searchbar from './Searchbar';
 import './App.css';
 import Giphfetch from './Giphfetch';
 import GiphRand from './GiphRand';
-
-const ud = require('urban-dictionary');
+import UrbanDictionary from './UrbanDictionary';
 
 class App extends Component {
   constructor(props) {
@@ -35,13 +34,24 @@ class App extends Component {
     this.getRandGiphs(this.state.searchVal);
   }
 
-  getDefinitions = (word) => {
-    ud.term(word).then((result) => {
-      this.setState({ udDef: result.entries })
-    }).catch((error) => {
+  async getDefinitions(word) {
+    try {
+      const results = await UrbanDictionary(word);
+      console.log(results);
+      this.setState({ udDef: results.list })
+    } catch (error) {
       this.setState({ udDef: [] })
-      console.error(error.message)
-    })
+      console.error(error);
+    }
+
+
+    // ud.term(word).then((result) => {
+    //   console.log(result);
+    //   this.setState({ udDef: result.entries })
+    // }).catch((error) => {
+    //   this.setState({ udDef: [] })
+    //   console.error(error.message)
+    // })
   }
 
   async getGiphs(val) {
